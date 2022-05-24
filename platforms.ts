@@ -1,11 +1,13 @@
-import { getDb } from './db';
+import { getDatabase } from './db';
 
 interface Platform {
   name: string;
+  price: number;
+  hasFreeTrial: boolean;
 }
 
 const getCollection = async () => {
-  const db = await getDb();
+  const db = await getDatabase();
   return db.collection<Platform>('platforms'); // this collection is now defined by the shape of Platform
 };
 
