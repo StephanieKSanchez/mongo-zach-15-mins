@@ -1,8 +1,9 @@
+import { ObjectId } from 'mongodb';
 import { getDb } from './db';
 
 interface TvShow {
   name: string;
-  platformIds: string[]; // array of strings
+  platformIds: ObjectId[]; 
 }
 
 const getCollection = async () => {
@@ -23,7 +24,7 @@ export const getTvShows = async () => {
   return ret.toArray();
 };
 
-export const getShowsByPlatform = async (platformId: string) => {
+export const getShowsByPlatform = async (platformId: ObjectId ) => {
   const col = await getCollection();
   const ret = col.find({
     platformId,
