@@ -35,11 +35,11 @@ console.log(tvShows);
 
 await createCharacters({
   name: 'Michael Scott', 
-  tvShowId: tvShows[1]._id});
+  tvShowId: tvShows[1]._id.toString()});
 await createCharacters({
   name: 'Pam Beasley', 
-  tvShowId: tvShows[1]._id});
-const characters = await getCharactersByTvShow(showsByPlatforms[1]._id);
+  tvShowId: tvShows[1]._id.toString()});
+const characters = await getCharactersByTvShow(showsByPlatforms[1]._id.toString());
 console.log(`These are my characters ${characters}`);
 const tvShowsByName = await getShowsByName('30');
 console.log(tvShowsByName);

@@ -3,7 +3,7 @@ import { getDatabase } from './db';
 
 interface Character {
   name: string;
-  tvShowId: ObjectId;
+  tvShowId: string;
 }
 
 const getCollection = async () => {
@@ -24,7 +24,7 @@ export const getCharacters = async () => {
   return ret.toArray();
 };
 
-export const getCharactersByTvShow = async (tvShowId: ObjectId) => {
+export const getCharactersByTvShow = async (tvShowId: string) => {
   const col = await getCollection();
   const ret = col.find({
     tvShowId,
